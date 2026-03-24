@@ -24,17 +24,21 @@ if (answer == "rock") {
 };
 }
 
-
-
 let humanScore = 0;
 let computerScore = 0;
 
 
+function playGame() {
+
+for (let i=0; i<5; i++) {
+
+//playRound(humanSelection, computerSelection);
 
 
 function playRound (humanChoice, computerChoice) {
     
-  if (humanChoice === computerChoice) {
+
+  if ((String(humanChoice)) === (String(computerChoice))) {
     console.log("Tie!");
 } else if (humanChoice === "rock" && computerChoice === "paper") {
     ++computerScore;
@@ -60,15 +64,27 @@ function playRound (humanChoice, computerChoice) {
     ++computerScore;
     console.log("You lose! Rock beats Scissors");
 }
+
+console.log(humanSelection, computerSelection);
+
+console.log(humanScore, computerScore);
+
 }
+
+
 
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-console.log(humanSelection);
-console.log(computerSelection);
-playRound(humanSelection, computerSelection);
-console.log(humanScore);
-console.log(computerScore);
 
+playRound(humanSelection, computerSelection);
+if (i === 4 && humanScore > computerScore) {
+    console.log("You win the grand prize!!!")
+} else if (i === 4 && computerScore > humanScore) {
+    console.log("Whomp whomp! You lost!");
+} else  if (i === 4 && humanScore === computerScore) {
+    console.log("The result cannot be determined");
+}
+}
+}
