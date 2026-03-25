@@ -1,1 +1,1 @@
-# rock-paper-scissors-1st-try
+# Rock paper scissors project from The Odin Project foundations course
