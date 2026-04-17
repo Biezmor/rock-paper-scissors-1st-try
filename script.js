@@ -16,7 +16,7 @@ function playGame () {
     let computerScore = 0;
     
     function playRound (humanChoice, computerChoice) {
-
+    
         
         if (humanScore >= 5 || computerScore >= 5) return;
     
@@ -44,8 +44,10 @@ function playGame () {
             results.textContent = 'What the heck is that?'
            };
            buttonBox.appendChild(results);
-           const score = document.createTextNode(` So far the score is ${humanScore} : ${computerScore}`)
-           results.appendChild(score);
+           const score = document.createTextNode(` So far the score is ${humanScore} : ${computerScore}`);
+           const scoreDiv = document.createElement("div");
+           results.appendChild(scoreDiv);
+           scoreDiv.appendChild(score);
            
     
          if (humanScore === 5 || computerScore === 5) {
@@ -62,8 +64,8 @@ function playGame () {
             };
             results.appendChild(finalWinner);
             
-            const playAgain = document.createElement("p");
-            playAgain.textContent = "Wanna play again?";
+            const playAgain = document.createElement("div");
+            playAgain.textContent = "";
             finalWinner.appendChild(playAgain);
     
             const againButton = document.createElement("button");
@@ -82,8 +84,9 @@ function playGame () {
         
         btns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const humanSelection = btn.textContent;
-            const computerSelection = getComputerChoice();
+            let humanSelection = btn.textContent;
+            let computerSelection = getComputerChoice();
+            humanSelection = humanSelection.toLocaleLowerCase()
             playRound(humanSelection, computerSelection);
         })
     })
