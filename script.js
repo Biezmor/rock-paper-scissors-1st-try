@@ -8,13 +8,15 @@ function getComputerChoice () {
     return arr[index];
 };
 
+const results = document.createElement("div");
+results.classList.add("resultBox");
+
 function playGame () {
     let humanScore = 0;
     let computerScore = 0;
     
     function playRound (humanChoice, computerChoice) {
-        const results = document.createElement("div");
-        results.classList.add("resultBox");
+
         
         if (humanScore >= 5 || computerScore >= 5) return;
     
